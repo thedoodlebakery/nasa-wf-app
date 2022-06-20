@@ -6,9 +6,10 @@ import LocationInfoBox from './LocationInfoBox';
 
 
 const Map = ({ eventData, center, zoom }) => {
+  const NATURAL_EVENT_WILDFIRE = 8;
   const [locationInfo, setLocationInfo] = useState(null);
   const markers = eventData.map(ev => {
-    if(ev.categories[0].id === 8){
+    if(ev.categories[0].id === NATURAL_EVENT_WILDFIRE){
       return <LocationMarker lat={ev.geometries[0].coordinates[1]} lng={ev.geometries[0].coordinates[0]} 
         onClick={() => setLocationInfo({id: ev.id, title: ev.title })}
       />
@@ -18,7 +19,7 @@ const Map = ({ eventData, center, zoom }) => {
   return (
     <div className="map">
         <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyC694bg4gVTgKBg4hUK8sygL_cqjEaQy40' }}
+        bootstrapURLKeys={{ key: '' }}
         defaultCenter={ center }
         defaultZoom= { zoom }
         >

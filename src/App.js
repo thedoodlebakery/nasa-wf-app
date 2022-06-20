@@ -4,6 +4,7 @@ import Map from './components/Map';
 import Header from './components/Header';
 
 function App() {
+  
   const [eventData, setEventData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -17,9 +18,9 @@ function App() {
       setLoading(false);
     }
       fetchEvents();
-      console.log(eventData);
+      
    
-  });
+  }, []);
 
 
   return (
